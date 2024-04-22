@@ -28,6 +28,7 @@ public interface TransaksiRepository extends JpaRepository<MstTransaksi, Long> {
             "    a.buku_id AS bukuId, " +
             "    b.kode_buku AS kodeBuku, " +
             "    a.user_id AS userId, " +
+            "    c.user_name As userName, " +
             "    a.keterangan, " +
             "    a.jumlah, " +
             "    a.tgl_pinjam, " +
@@ -35,6 +36,7 @@ public interface TransaksiRepository extends JpaRepository<MstTransaksi, Long> {
             "FROM " +
             "    mst_transaksi a " +
             "    INNER JOIN mst_buku b ON a.buku_id = b.buku_id " +
+            "    INNER JOIN mst_user c ON a.user_id = c.user_id " +
             "ORDER BY " +
             "    a.transaksi_id, " +
             "    status ASC", nativeQuery = true)
@@ -50,6 +52,7 @@ public interface TransaksiRepository extends JpaRepository<MstTransaksi, Long> {
             "    a.buku_id AS bukuId, " +
             "    b.kode_buku AS kodeBuku, " +
             "    a.user_id AS userId, " +
+            "    c.user_name As userName, " +
             "    a.keterangan, " +
             "    a.jumlah, " +
             "    a.tgl_pinjam, " +
@@ -57,6 +60,7 @@ public interface TransaksiRepository extends JpaRepository<MstTransaksi, Long> {
             "FROM " +
             "    mst_transaksi a " +
             "    INNER JOIN mst_buku b ON a.buku_id = b.buku_id " +
+            "    INNER JOIN mst_user c ON a.user_id = c.user_id " +
             "WHERE " +
             "    CASE " +
             "            WHEN a.tgl_pinjam < a.tgl_pengembalian - INTERVAL '1 DAY' THEN 'AKTIF' " +

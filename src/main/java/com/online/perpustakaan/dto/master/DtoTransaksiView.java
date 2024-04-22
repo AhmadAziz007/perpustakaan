@@ -26,6 +26,8 @@ public class DtoTransaksiView {
 
     private Long userId;
 
+    private String userName;
+
     private String keterangan;
 
     private Integer jumlah;
@@ -33,6 +35,14 @@ public class DtoTransaksiView {
     private Date tglPinjam;
 
     private Date tglPengembalian;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public Long getTransaksiId() {
         return transaksiId;
