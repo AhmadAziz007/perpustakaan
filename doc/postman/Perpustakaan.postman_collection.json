@@ -1,0 +1,711 @@
+{
+	"info": {
+		"_postman_id": "27e77690-d8df-4940-993b-467b8e13a7f1",
+		"name": "Perpustakaan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20727504"
+	},
+	"item": [
+		{
+			"name": "buku",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"kodeBuku\" : \"S234\",\r\n    \"judul\" : \"Programmer\",\r\n    \"pengarang\" : \"Luhut Binsar P\",\r\n    \"jumlahStock\" : 10,\r\n    \"tahunPenerbit\" : \"2014-10-04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/buku/save",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"buku",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bukuId\": 1,\r\n    \"kodeBuku\" : \"S123\",\r\n    \"judul\" : \"Kalkulus\",\r\n    \"pengarang\" : \"Sri Mulyani\",\r\n    \"jumlahStock\" : 14,\r\n    \"tahunPenerbit\" : \"2014-10-04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/buku/update",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"buku",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get buku",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"kodeBuku\" : \"S123\",\r\n    \"judul\" : \"Kalkulus\",\r\n    \"pengarang\" : \"Sri Mulyani\",\r\n    \"jumlahStock\" : 10,\r\n    \"tahunPenerbit\" : \"2014-10-04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/buku/getkode/S123",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"buku",
+								"getkode",
+								"S123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5161/buku/getall",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"buku",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5161/buku/getkode/S123",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"buku",
+								"getkode",
+								"S123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaksi",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bukuId\" : 2,\r\n    \"noTiket\" : \"TI0956\",\r\n    \"keterangan\" : \"Buku Programmer\",\r\n    \"jumlah\" : 1,\r\n    \"tglPinjam\" : \"2024-04-21\",\r\n    \"tglPengembalian\" : \"2024-04-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/transaksi/save",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"transaksi",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bukuId\" : 2,\r\n    \"noTiket\" : \"S413\",\r\n    \"keterangan\" : \"Buku Programmer\",\r\n    \"jumlah\" : 1,\r\n    \"tglPinjam\" : \"2024-04-21\",\r\n    \"tglPengembalian\" : \"2024-04-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/transaksi/update",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"transaksi",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5161/transaksi/get-all",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"transaksi",
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get transaksi",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"AKTIF\",\r\n    \"noTiket\": \"%S334%\",\r\n    \"kodeBuku\": \"%S123%\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/transaksi/search",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"transaksi",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\" : \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/role/save",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"role",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\" : 1,\r\n    \"roleName\" : \"Admin 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/role/update",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"role",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get role",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/role/getrole/Admin 1",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"role",
+								"getrole",
+								"Admin 1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5161/role/getall",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"role",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\" : 1,\r\n    \"userName\" : \"Bond Girls\",\r\n    \"userEmail\" : \"girl007@gmail.com\",\r\n    \"password\" : \"jamesbond\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\" : 2,\r\n    \"roleId\" : 1,\r\n    \"userName\" : \"James Bond\",\r\n    \"userEmail\" : \"bond007@gmail.com\",\r\n    \"password\" : \"jamesbond\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/user/update",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/user/getuser/girl007@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"user",
+								"getuser",
+								"girl007@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5161/user/getall",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"user",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5161/user/delete/3",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"user",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userEmail\" : \"bond007@gmail.com\",\r\n    \"password\" : \"jamesbond\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5161/api/v1/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5161",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
