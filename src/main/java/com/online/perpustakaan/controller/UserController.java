@@ -20,8 +20,7 @@ public class UserController {
     JwtService jwtService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> createUser(@RequestHeader Map<String,String> header, @RequestBody MstUserDTO request){
-        jwtService.filter(header);
+    public ResponseEntity<?> createUser(@RequestBody MstUserDTO request){
         return userService.createUser(request);
     }
 

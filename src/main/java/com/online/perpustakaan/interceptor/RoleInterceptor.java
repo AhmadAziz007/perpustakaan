@@ -12,9 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import java.util.HashMap;
 import java.util.Map;
-
-import static io.vertx.core.http.impl.HttpClientConnection.log;
 
 @Component
 public class RoleInterceptor implements HandlerInterceptor {
@@ -24,13 +23,15 @@ public class RoleInterceptor implements HandlerInterceptor {
     @Autowired
     private RoleRepository roleRepository;
 
-    public boolean preHandle(Map<String,String> header, HttpServletRequest request , HttpServletResponse response, Object handler) throws Exception {
-        String bearer = header.get("authorization");
-        String split[] = bearer.split(" ");
-        bearer = split[1];
-        log.info(bearer);
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        Map<String, String> header = getAuthorizationHeader(request);
+        String bearerToken = getBearerToken(header);
+        if (bearerToken == null) {
+            throw new JwtException();
+        }
 
-        MstUser user = userRepository.findByToken(bearer);
+        MstUser user = userRepository.findByToken(bearerToken);
         if (user == null) {
             throw new JwtException();
         }
@@ -46,21 +47,60 @@ public class RoleInterceptor implements HandlerInterceptor {
         String requestURI = request.getRequestURI();
 
         // Check access based on role_name and request URI
-        if ((roleName.equalsIgnoreCase("Admin 1") || roleName.equalsIgnoreCase("Admin 2")) && (
-                method.equalsIgnoreCase("POST") && requestURI.contains("/user/register") ||
-                        method.equalsIgnoreCase("PUT") && requestURI.contains("/user/update") ||
-                        method.equalsIgnoreCase("DELETE") && requestURI.contains("/user/delete"))) {
+        if ((roleName.equalsIgnoreCase("Admin 1") || roleName.equalsIgnoreCase("Admin 2")
+                || roleName.equalsIgnoreCase("Customer")) &&
+                        method.equalsIgnoreCase("PUT") && requestURI.contains("/user/update")  ||
+
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/buku/getkode") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/buku/getall") ||
+
+                        method.equalsIgnoreCase("POST") && requestURI.contains("/transaksi/save") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/transaksi/get-all") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/transaksi/search")) {
             return true;
-        } else if ((roleName.equalsIgnoreCase("Admin 1") || roleName.equalsIgnoreCase("Admin 2") || roleName.equalsIgnoreCase("Customer")) && (
-                method.equalsIgnoreCase("GET") && requestURI.contains("/user/getuser") ||
-                        method.equalsIgnoreCase("GET") && requestURI.contains("/user/getall"))) {
+        } else if ((roleName.equalsIgnoreCase("Admin 1") || roleName.equalsIgnoreCase("Admin 2")) && (
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/user/getuser") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/user/getall") ||
+                        method.equalsIgnoreCase("DELETE") && requestURI.contains("/user/delete") ||
+
+                        method.equalsIgnoreCase("POST") && requestURI.contains("/role/save") ||
+                        method.equalsIgnoreCase("PUT") && requestURI.contains("/role/update") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/role/getrole") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/role/getall") ||
+                        method.equalsIgnoreCase("DELETE") && requestURI.contains("/role/delete") ||
+
+                        method.equalsIgnoreCase("POST") && requestURI.contains("/buku/save") ||
+                        method.equalsIgnoreCase("PUT") && requestURI.contains("/buku/update") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/buku/getkode") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/buku/getall") ||
+                        method.equalsIgnoreCase("DELETE") && requestURI.contains("/buku/delete") ||
+
+                        method.equalsIgnoreCase("POST") && requestURI.contains("/transaksi/save") ||
+                        method.equalsIgnoreCase("PUT") && requestURI.contains("/transaksi/update") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/transaksi/get-all") ||
+                        method.equalsIgnoreCase("GET") && requestURI.contains("/transaksi/search"))) {
             return true;
         }
 
         throw new ForbiddenAccessException("Access forbidden for this role or endpoint");
     }
 
-    private String getBearerToken(Map<String,String> bearer){
-        return bearer.get("Authorization");
+    private Map<String, String> getAuthorizationHeader(HttpServletRequest request) {
+        // Ambil header Authorization dari request
+        String authorizationHeader = request.getHeader("Authorization");
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            String token = authorizationHeader.substring(7); // Potong "Bearer " dari token
+            Map<String, String> header = new HashMap<>();
+            header.put("authorization", token);
+            return header;
+        }
+        return null;
+    }
+
+    private String getBearerToken(Map<String, String> header) {
+        if (header != null) {
+            return header.get("authorization");
+        }
+        return null;
     }
 }

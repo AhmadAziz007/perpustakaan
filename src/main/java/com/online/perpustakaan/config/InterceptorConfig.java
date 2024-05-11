@@ -14,6 +14,9 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(roleInterceptor)
-                .addPathPatterns("/user/**");// Adjust the path pattern as needed
+                .addPathPatterns("/user/**") // Aturan akses untuk MstUser
+                .addPathPatterns("/buku/**")
+                .addPathPatterns("/role/**")
+                .addPathPatterns("/transaksi/**"); // Aturan akses untuk MstBuku
     }
 }
