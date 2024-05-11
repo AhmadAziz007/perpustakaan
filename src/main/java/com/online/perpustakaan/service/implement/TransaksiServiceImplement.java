@@ -35,6 +35,7 @@ public class TransaksiServiceImplement implements TransaksiService {
     public ResponseEntity<?> createTransaksi(MstTransaksiDTO requestDTO) {
         ResponseDTO response = new ResponseDTO();
         try{
+
             MstTransaksi transaksi = new MstTransaksi();
             MstTransaksi mstTransaksi = transaksiRepo.findByTiket(requestDTO.getNoTiket());
             if (mstTransaksi != null) {
@@ -125,6 +126,10 @@ public class TransaksiServiceImplement implements TransaksiService {
 
     @Override
     public ResponseEntity<List<DtoTransaksiView>> getTransaksi(String noTiket, String status, String kodeBuku) {
+        noTiket = noTiket.toUpperCase();
+        status = status.toUpperCase();
+        kodeBuku = kodeBuku.toUpperCase();
+
         List<Object[]> resultList = transaksiRepo.findByLikeCriteria(noTiket, status, kodeBuku);
         List<DtoTransaksiView> transaksiList = new ArrayList<>();
 

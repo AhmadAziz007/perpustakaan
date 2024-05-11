@@ -14,7 +14,7 @@ public interface BukuRepository extends JpaRepository<MstBuku, Long> {
     @Query(value = "select distinct a.* from mst_buku a where a.item_id = :itemId",nativeQuery = true)
     MstBuku findByItemId(@Param("itemId") Long itemId);
 
-    @Query(value = "select distinct a.* from mst_buku a where a.kode_buku = :kode_buku",nativeQuery = true)
+    @Query(value = "select distinct a.* from mst_buku a where a.kode_buku like %:kode_buku%",nativeQuery = true)
     MstBuku findByBuku(@Param("kode_buku") String kodeBuku);
 
     @Query(value = "select distinct a.* from mst_buku a where a.buku_id = :buku_id",nativeQuery = true)

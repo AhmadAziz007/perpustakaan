@@ -31,10 +31,12 @@ public class BukuController {
         return bukuService.updateBuku(request);
     }
 
-    @GetMapping("/getkode/{buku}")
-    public ResponseEntity<?> getbuku(@RequestHeader Map<String,String> header, @PathVariable String buku){
+    @GetMapping("/getkode")
+    public ResponseEntity<?> getbuku(@RequestHeader Map<String,String> header, @RequestBody MstBukuDTO request){
         jwtService.filter(header);
-        return bukuService.getBuku(buku);
+        String kodeBuku = request.getKodeBuku();
+
+        return bukuService.getBuku(kodeBuku);
     }
 
     @GetMapping("/getall")

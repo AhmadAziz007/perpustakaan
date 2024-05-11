@@ -20,20 +20,21 @@ public class UserController {
     JwtService jwtService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> createRole(@RequestHeader Map<String,String> header, @RequestBody MstUserDTO request){
+    public ResponseEntity<?> createUser(@RequestHeader Map<String,String> header, @RequestBody MstUserDTO request){
         jwtService.filter(header);
         return userService.createUser(request);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateRole(@RequestHeader Map<String,String> header, @RequestBody MstUserDTO request){
+    public ResponseEntity<?> updateUser(@RequestHeader Map<String,String> header, @RequestBody MstUserDTO request){
         jwtService.filter(header);
         return userService.updateUser(request);
     }
 
-    @GetMapping("/getuser/{email}")
-    public ResponseEntity<?> getRole(@RequestHeader Map<String,String> header, @PathVariable String email){
+    @GetMapping("/getuser")
+    public ResponseEntity<?> getUser(@RequestHeader Map<String,String> header, @RequestBody MstUserDTO request){
         jwtService.filter(header);
+        String email = request.getUserEmail();
         return userService.getUser(email);
     }
 
@@ -44,7 +45,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteRole(@RequestHeader Map<String,String> header, @PathVariable Long id){
+    public ResponseEntity<?> deleteUser(@RequestHeader Map<String,String> header, @PathVariable Long id){
         jwtService.filter(header);
         return userService.deleteUser(id);
     }

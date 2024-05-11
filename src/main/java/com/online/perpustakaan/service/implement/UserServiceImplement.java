@@ -105,6 +105,8 @@ public class UserServiceImplement implements UserService {
     @Override
     public ResponseEntity<?> getUser(String email) {
         ResponseDTO response = new ResponseDTO();
+        email = email.toUpperCase();
+
         try{
             MstUser mstUser = userRepo.findByEmail(email);
             if (mstUser == null){
