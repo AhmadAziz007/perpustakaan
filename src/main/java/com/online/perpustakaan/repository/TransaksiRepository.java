@@ -21,7 +21,7 @@ public interface TransaksiRepository extends JpaRepository<MstTransaksi, Long> {
     @Query(value = "SELECT " +
             "    a.transaksi_id AS transaksiId, " +
             "    CASE " +
-            "        WHEN a.tgl_pinjam < a.tgl_pengembalian - INTERVAL '1 DAY' THEN 'AKTIF' " +
+            "        WHEN a.tgl_pengembalian > CURRENT_DATE - INTERVAL '1 day' THEN 'AKTIF' " +
             "        ELSE 'TIDAK AKTIF' " +
             "    END AS status, " +
             "    a.no_tiket AS noTiket, " +
@@ -45,7 +45,7 @@ public interface TransaksiRepository extends JpaRepository<MstTransaksi, Long> {
     @Query(value = "SELECT " +
             "    a.transaksi_id AS transaksiId, " +
             "    CASE " +
-            "        WHEN a.tgl_pinjam < a.tgl_pengembalian - INTERVAL '1 DAY' THEN 'AKTIF' " +
+            "        WHEN a.tgl_pengembalian > CURRENT_DATE - INTERVAL '1 day' THEN 'AKTIF' " +
             "        ELSE 'TIDAK AKTIF' " +
             "    END AS status, " +
             "    a.no_tiket AS noTiket, " +
@@ -63,7 +63,7 @@ public interface TransaksiRepository extends JpaRepository<MstTransaksi, Long> {
             "    INNER JOIN mst_user c ON a.user_id = c.user_id " +
             "WHERE " +
             "    CASE " +
-            "            WHEN a.tgl_pinjam < a.tgl_pengembalian - INTERVAL '1 DAY' THEN 'AKTIF' " +
+            "            WHEN a.tgl_pengembalian > CURRENT_DATE - INTERVAL '1 day' THEN 'AKTIF' " +
             "            ELSE 'TIDAK AKTIF' " +
             "        END = :status " +
             "    AND a.no_tiket LIKE %:noTiket% " +

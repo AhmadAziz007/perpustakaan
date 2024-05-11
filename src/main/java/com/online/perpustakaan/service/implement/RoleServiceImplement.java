@@ -81,6 +81,8 @@ public class RoleServiceImplement implements RoleService {
     @Override
     public ResponseEntity<?> getRole(String name) {
         ResponseDTO response = new ResponseDTO();
+        name = name.toUpperCase();
+
         try {
             MstRole role = roleRepo.findByRoleName(name);
             if (role == null) {

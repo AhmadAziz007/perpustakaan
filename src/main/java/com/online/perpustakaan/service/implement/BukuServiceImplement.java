@@ -12,9 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.online.perpustakaan.common.Checker.isNullStr;
-import static java.util.Objects.isNull;
-
 @Service(value = "bukuService")
 public class BukuServiceImplement implements BukuService {
 
@@ -32,8 +29,11 @@ public class BukuServiceImplement implements BukuService {
                 response.setMessage("buku " + requestDTO.getKodeBuku() + " already exists");
                 return new ResponseEntity<>(response, HttpStatus.CONFLICT);
             }
-            if (isNullStr(requestDTO.getKodeBuku()) && isNullStr(requestDTO.getJudul()) &&
-                isNullStr(requestDTO.getPengarang()) && isNull(requestDTO.getJumlahStock()) && isNull(requestDTO.getTahunPenerbit())){
+            if (requestDTO.getKodeBuku() == null ||
+                    requestDTO.getJudul() == null ||
+                    requestDTO.getPengarang() == null ||
+                    requestDTO.getJumlahStock() == null ||
+                    requestDTO.getTahunPenerbit() == null) {
                 response.setCode("204");
                 response.setMessage("Field mandatory tidak boleh kosong");
                 return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -97,13 +97,15 @@ public class BukuServiceImplement implements BukuService {
     }
 
     @Override
-    public ResponseEntity<?> getBuku(String buku) {
+    public ResponseEntity<?> getBuku(String kodeBuku) {
+        kodeBuku = kodeBuku.toUpperCase();
+
         ResponseDTO response = new ResponseDTO();
         try{
-            MstBuku mstBuku = bukuRepo.findByBuku(buku);
+            MstBuku mstBuku = bukuRepo.findByBuku(kodeBuku);
             if (mstBuku == null) {
                 response.setCode("204");
-                response.setMessage("Kode Buku " + buku + " not found");
+                response.setMessage("Kode Buku " + kodeBuku + " not found");
                 return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
             }
             response.setCode("200");

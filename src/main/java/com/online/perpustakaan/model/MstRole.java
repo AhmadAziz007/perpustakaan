@@ -18,6 +18,17 @@ public class MstRole {
     @Column(name = "role_name")
     private String roleName;
 
+    @Column(name = "token")
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public Long getRoleId() {
         return roleId;
     }
