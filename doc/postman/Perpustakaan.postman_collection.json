@@ -96,7 +96,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM5NzQzMzB9.-qiTaJWTdwkf3nQ2LZuzKYhum8sqWLxlkWkT6Y7bdAsCzBvizgXd718EeAOGkkADcoc5QCkagepQk29l35-AIw",
 									"type": "string"
 								}
 							]
@@ -105,7 +105,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"kodeBuku\" : \"S123\",\r\n    \"judul\" : \"Kalkulus\",\r\n    \"pengarang\" : \"Sri Mulyani\",\r\n    \"jumlahStock\" : 10,\r\n    \"tahunPenerbit\" : \"2014-10-04\"\r\n}",
+							"raw": "{\r\n    \"kodeBuku\" : \"S12\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -113,15 +113,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5161/buku/getkode/S123",
+							"raw": "localhost:5161/buku/getkode",
 							"host": [
 								"localhost"
 							],
 							"port": "5161",
 							"path": [
 								"buku",
-								"getkode",
-								"S123"
+								"getkode"
 							]
 						}
 					},
@@ -172,15 +171,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5161/buku/getkode/S123",
+							"raw": "localhost:5161/buku/delete/",
 							"host": [
 								"localhost"
 							],
 							"port": "5161",
 							"path": [
 								"buku",
-								"getkode",
-								"S123"
+								"delete",
+								""
 							]
 						}
 					},
@@ -199,7 +198,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM5NTMxMTR9.IrSJeMtnKpdZE-RA6ciUnLLe1w0lha9Q6bdbsbOdiMmBuv5bid6Lgvq2B7OeOw0qmCIuDdNDM4EtX3p9Fye4QQ",
 									"type": "string"
 								}
 							]
@@ -208,7 +207,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"bukuId\" : 2,\r\n    \"noTiket\" : \"TI0956\",\r\n    \"keterangan\" : \"Buku Programmer\",\r\n    \"jumlah\" : 1,\r\n    \"tglPinjam\" : \"2024-04-21\",\r\n    \"tglPengembalian\" : \"2024-04-23\"\r\n}",
+							"raw": "{\r\n    \"bukuId\" : 1,\r\n    \"userId\" : 2,\r\n    \"noTiket\" : \"TI9424\",\r\n    \"keterangan\" : \"Buku Kalkulus\",\r\n    \"jumlah\" : 1,\r\n    \"tglPinjam\" : \"2024-04-21\",\r\n    \"tglPengembalian\" : \"2024-04-25\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -237,7 +236,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM5MTUxOTJ9.1WEzzkQpFogq4Pv-8RmnWFgzzv--_rv18PH3rEmGm7POtkObb6cYJWZwyv9TB6iKETcGtRjpp9MqVMd4kQ-gog",
 									"type": "string"
 								}
 							]
@@ -246,7 +245,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"bukuId\" : 2,\r\n    \"noTiket\" : \"S413\",\r\n    \"keterangan\" : \"Buku Programmer\",\r\n    \"jumlah\" : 1,\r\n    \"tglPinjam\" : \"2024-04-21\",\r\n    \"tglPengembalian\" : \"2024-04-22\"\r\n}",
+							"raw": "{\r\n    \"transaksiId\" : 52,\r\n    \"bukuId\" : 2,\r\n    \"userId\" : 2,\r\n    \"noTiket\" : \"TI0956\",\r\n    \"keterangan\" : \"Buku Programmer\",\r\n    \"jumlah\" : 1,\r\n    \"tglPinjam\" : \"2024-04-21\",\r\n    \"tglPengembalian\" : \"2024-04-23\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -275,7 +274,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM5NTMxMTR9.IrSJeMtnKpdZE-RA6ciUnLLe1w0lha9Q6bdbsbOdiMmBuv5bid6Lgvq2B7OeOw0qmCIuDdNDM4EtX3p9Fye4QQ",
 									"type": "string"
 								}
 							]
@@ -307,7 +306,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM5NzE5NDN9.bbHkKCQMydntKI3IEaZlNeRsl7IRhPktXDRh1M6zzpLn-StHHTs-a9lwrpzrO0dXwK0HsvqBuuZvZpP9d0aSdQ",
 									"type": "string"
 								}
 							]
@@ -316,7 +315,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"status\": \"AKTIF\",\r\n    \"noTiket\": \"%S334%\",\r\n    \"kodeBuku\": \"%S123%\"\r\n}",
+							"raw": "{\r\n    \"status\": \"AKTIF\", \"noTiket\": \"%%\", \"kodeBuku\": \"%%\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -540,7 +539,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTU1MDA0MTZ9.K77KxOm5iPGLMRNAsMhN_iaqPOyA43WOJSxdWhRiicoZcB-pa7sHt2bidYdGPLdK6yWBCLdr_gHRo-N0YQBGFw",
 									"type": "string"
 								}
 							]
@@ -549,7 +548,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\" : 2,\r\n    \"roleId\" : 1,\r\n    \"userName\" : \"James Bond\",\r\n    \"userEmail\" : \"bond007@gmail.com\",\r\n    \"password\" : \"jamesbond\"\r\n}",
+							"raw": "{\r\n    \"userId\": 53,\r\n    \"roleId\" : 1,\r\n    \"userName\" : \"Tomato\",\r\n    \"userEmail\" : \"tomatoo@gmail.com\",\r\n    \"password\" : \"jamesbond\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -581,7 +580,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTQwMTI5MDZ9.7t_O3NA3y3XKf_a7-oiqS_vjApj5eN-Rx9vzX7u6VHQ_-Z2lVNulXJqqk0-cpgO-1lPFJA1ZYTgkyeHZ9Zg3AA",
 									"type": "string"
 								}
 							]
@@ -590,7 +589,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"userEmail\" : \"bond@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -598,15 +597,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5161/user/getuser/girl007@gmail.com",
+							"raw": "localhost:5161/user/getuser",
 							"host": [
 								"localhost"
 							],
 							"port": "5161",
 							"path": [
 								"user",
-								"getuser",
-								"girl007@gmail.com"
+								"getuser"
 							]
 						}
 					},
@@ -620,7 +618,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTM4ODkyODR9.QeW0OpVubA9FsPTdhBKvwPESX137TmVVXQar5seMyA2F6LbtAYU9qRgX2s0GJDRAzJEyURU_ukkAlsEURISUzw",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE3MTU1MDM5OTR9.tMuJ4w_h3uDI6P1s3oPy9Ww4Ieqk4i1AVqK98IX8_yMI59v_uzVfJXcx5kAfY1kJs_fBgRmetHC7_bQR8KHAKw",
 									"type": "string"
 								}
 							]
@@ -683,7 +681,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userEmail\" : \"bond007@gmail.com\",\r\n    \"password\" : \"jamesbond\"\r\n}",
+							"raw": "{\r\n    \"userEmail\" : \"girl007@gmail.com\",\r\n    \"password\" : \"jamesbond\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
